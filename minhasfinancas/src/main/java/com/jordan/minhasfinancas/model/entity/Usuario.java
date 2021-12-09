@@ -1,6 +1,6 @@
 package com.jordan.minhasfinancas.model.entity;
 
-import java.util.Objects;
+//import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,14 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.experimental.SuperBuilder;
+import lombok.NoArgsConstructor;
 
 @Entity						//Informo que Usuário é uma entidade da tabela
 @Table(name = "usuario" , schema = "financas")	//Informo a tabela e seu schema caso haja
 @Data
-@SuperBuilder
+@Builder //precisa de todos os constutores cheios
+@NoArgsConstructor //garante um metodo construtor vazio
+@AllArgsConstructor //cria construtor com todos os argumentos para não conflitar com o Builder
 
 // Usando Lombok
 public class Usuario {
@@ -34,7 +37,7 @@ public class Usuario {
 	
 	@Column(name = "senha")
 	private String senha;
-	
+			
 	//Não uso nada disso pois uso o lombok que automatiza
 	
 //	@Override			//Hash usado para comparar o que é passado com o elemento interno
